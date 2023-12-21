@@ -1,3 +1,5 @@
+## Name: POZHILAN V D
+## Reg. No.23013442
 # Exp-6-Synchornous-counters - up counter and down counter 
 ### AIM: To implement 4 bit up and down counters and validate  functionality.
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
@@ -46,43 +48,84 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
-
-
+1.Create a new project in Quartus II software.
+2.Name the project as uc for upcounter and dc for downcounter.
+3.Create a new Verilog HDL file in the project file.
+4.Name the module as dc and uc for downcounter and upcounter.
+5.Within the module declare input and output variables.
+6.Complete the program.
+7.End the module.
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+## UP COUNTER
+module uc(clk, A);
 
+input clk;
 
+output reg [2:0]A;
 
+always @(posedge clk)
+
+begin
+
+A[2]=(((A[0])&(A[1]))^A[2]);
+
+A[1]=(A[0])^A[1];
+
+A[0]=A[0]^1;
+
+end
+
+endmodule
+
+## DOWN COUNTER
+module dc(clk,A);
+
+input clk;
+
+output reg [2:0]A;
+
+always @(posedge clk)
+
+begin
+
+A[2]=(((~A[0])&(~A[1]))^A[2]);
+
+A[1]=(~A[0])^A[1];
+
+A[0]=1^A[0];
+
+end
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
+## UP COUNTER
+![up counter](https://github.com/POZHILANVD/Exp-7-Synchornous-counters-/assets/144870498/ad9d82da-710b-4480-9d8b-7024f70bf9e9)
 
-
-
-
-
-
+## DOWN COUNTER
+![down counter](https://github.com/POZHILANVD/Exp-7-Synchornous-counters-/assets/144870498/cd674639-b15a-4775-b50a-1351c676c50a)
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+## UP COUNTER
+![timing up](https://github.com/POZHILANVD/Exp-7-Synchornous-counters-/assets/144870498/30c6a415-e1eb-47b7-9485-72750ff25571)
 
 
-
+## DOWN COUNTER
+![timing down](https://github.com/POZHILANVD/Exp-7-Synchornous-counters-/assets/144870498/391280d8-7362-4bf3-9ead-69adc368566c)
 
 
 ### TRUTH TABLE 
 
+## UP COUNTER
+![truth up](https://github.com/POZHILANVD/Exp-7-Synchornous-counters-/assets/144870498/377435c0-5fa4-49a2-bdb0-76ad230d1d2e)
 
+## DOWN COUNTER
 
-
+![truth down](https://github.com/POZHILANVD/Exp-7-Synchornous-counters-/assets/144870498/5fae619a-ee50-4110-9fc9-8713c36ace7a)
 
 
 ### RESULTS 
+Thus, the flipflops are implemented using verilog.
